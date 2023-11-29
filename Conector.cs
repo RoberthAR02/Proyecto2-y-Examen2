@@ -11,8 +11,8 @@ namespace rarExamen
     {
         public static SqlConnection getConnection()
         {
-            string cnxStr = ConfigurationManager.ConnectionStrings["cnxrarExamen"].ConnectionString;
-            SqlConnection cnx = new SqlConnection(cnxStr);
+            string conexion = ConfigurationManager.ConnectionStrings["cnx1"].ConnectionString;
+            SqlConnection cnx = new SqlConnection(conexion);
             cnx.Open();
 
             return cnx;

@@ -29,28 +29,28 @@ namespace rarExamen
 
         public bool agregarUsuario()
         {
-            int success = Base_de_datos.insertarUsuario(Nombre, CorreoElectronico, Telefono);
+            int success = Base_de_datos.InsertarUsuario(Nombre, CorreoElectronico, Telefono);
 
             return success > 0;
         }
 
         public bool borrarUsuario()
         {
-            int success = Base_de_datos.borrarUsuariosPorId(Id);
+            int success = Base_de_datos.BorrarUsuariosPorId(Id);
 
             return success > 0;
         }
 
         public bool modificarUsuario()
         {
-            int success = Base_de_datos.actualizarUsuarioPorId(Id, Nombre, CorreoElectronico, Telefono);
+            int success = Base_de_datos.ActualizarUsuarioPorId(Id, Nombre, CorreoElectronico, Telefono);
 
             return success > 0;
         }
 
         public bool consultarUsuario(GridView dg)
         {
-            int success = Base_de_datos.consultarUsuariosPorId(Id, dg);
+            int success = Base_de_datos.ConsultarUsuariosPorId(Id, dg);
 
             return success > 0;
         }

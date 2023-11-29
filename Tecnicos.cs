@@ -27,28 +27,28 @@ namespace rarExamen
 
         public bool agregarTecnico()
         {
-            int success = Base_de_datos.insertarTecnico(Nombre, Especialidad);
+            int success = Base_de_datos.InsertarTecnico(Nombre, Especialidad);
 
             return success > 0;
         }
 
         public bool borrarTecnico()
         {
-            int success = Base_de_datos.borrarTecnicosPorId(Id);
+            int success = Base_de_datos.BorrarTecnicosPorId(Id);
 
             return success > 0;
         }
 
         public bool modificarTecnico()
         {
-            int success = Base_de_datos.actualizarTecnicoPorId(Id, Nombre, Especialidad);
+            int success = Base_de_datos.ActualizarTecnicoPorId(Id, Nombre, Especialidad);
 
             return success > 0;
         }
 
         public bool consultarTecnico(GridView dg)
         {
-            int success = Base_de_datos.consultarTecnicosPorId(Id, dg);
+            int success = Base_de_datos.ConsultarTecnicosPorId(Id, dg);
 
             return success > 0;
         }

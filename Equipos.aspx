@@ -4,17 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="container">
-        <h1 class="text-center">Catalogo de Equipos</h1>
-        <div class="container">
-        <div class="col-12 p-4">
-        <asp:GridView runat="server" ID="dgEquipos" PageSize="10" HorizontalAlign="Center"
-         CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header"
-         RowStyle-CssClass="rows" AllowPaging="True" Width="251px" OnRowEditing="dgEquipos_RowEditing"
-         OnRowUpdating="dgEquipos_RowUpdating" OnRowDeleting="dgEquipos_RowDeleting" OnPageIndexChanging="dgEquipos_PageIndexChanging"/>
-        </div>
-        <div class="row">
-        <div class="col-3 p-2 d-inline-block">
-        <label for="id" class="form-label ">Codigo Equipo:</label>
+       <h1 class="text-center">Equipos</h1>
+<div class="container">
+<div class="col--12 p-4">
+<asp:GridView runat="server" ID="dgEquipos" PageSize="10" HorizontalAlign="Center"
+            CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header"
+            RowStyle-CssClass="rows" AllowPaging="True"    />
+</div>
+<div class="row">
+<div class="col-3 p-2 d-inline-block">
+<label for="id" class="form-label ">CodigoEquipo:</label>
         <asp:TextBox runat="server" ID="txtId" CssClass="form-control"/>
         </div>
         <div class="col-3 p-2 d-inline-block">

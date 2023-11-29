@@ -27,30 +27,30 @@ namespace rarExamen
             UsuarioID = usuarioID;
         }
 
-        public bool agregarEquipo()
+        public bool AgregarEquipo()
         {
-            int success = Base_de_datos.insertarEquipo(TipoEquipo, Modelo, UsuarioID);
+            int success = Base_de_datos.InsertarEquipo(TipoEquipo, Modelo, UsuarioID);
 
             return success > 0;
         }
 
         public bool borrarEquipo()
         {
-            int success = Base_de_datos.borrarEquiposPorId(Id);
+            int success = Base_de_datos.BorrarEquiposPorId(Id);
 
             return success > 0;
         }
 
-        public bool modificarEquipo()
+        public bool ModificarEquipo()
         {
-            int success = Base_de_datos.actualizarEquipoPorId(Id, TipoEquipo, Modelo, UsuarioID);
+            int success = Base_de_datos.ActualizarEquipoPorId(Id, TipoEquipo, Modelo, UsuarioID);
 
             return success > 0;
         }
 
-        public bool consultarUsuario(GridView dg)
+        public bool ConsultarUsuario(GridView dg)
         {
-            int success = Base_de_datos.consultarEquiposPorId(Id, dg);
+            int success = Base_de_datos.ConsultarEquiposPorId(Id, dg);
 
             return success > 0;
         }

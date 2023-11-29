@@ -17,7 +17,7 @@ namespace rarExamen
 
         protected void fillGrid()
         {
-            int success = rarExamen.Base_de_datos.consultarTecnicos(dgTecnicos);
+            int success = rarExamen.Base_de_datos.ConsultarTecnicos(dgTecnicos);
 
             if (success > 0)
             {

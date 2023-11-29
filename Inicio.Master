@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>rarExamen</title>
+    <title>rarExamen mas proyecto final</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="css/main.css" rel="stylesheet" />
@@ -13,24 +13,42 @@
 <body>
     <form id="form1" runat="server">
         <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-blue bg-blue">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">rarExamen</a>
+        <a class="navbar-brand" href="#">rarExamen mas proyecto final</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
+            </div>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              </div>
          <div class="navbar-nav">
-         <a class="nav-link" href="Usuarios.aspx">Usuarios1</a>
-         <a class="nav-link" href="Tecnicos.aspx">Tecnicos1</a>
-         <a class="nav-link" href="Equipos.aspx">Equipos1</a>
-         </div>
-         </div>
+         <a class="nav-link" href="Usuarios.aspx">Usuarios</a>
+         <a class="nav-link" href="Tecnicos.aspx">Tecnicos</a>
+         <a class="nav-link" href="Equipos.aspx">Equipos</a>
+         <a class="nav-link" href="Reparaciones.aspx">Reparaciones</a>
+         <a class="nav-link" href="Asignaciones.aspx">Asignanciones</a>
+         <a class="nav-link" href="DetallesDeReparaciones.aspx">DetallesDeReparaciones</a>
          </div>
          </nav>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
         </div>
     </form>
+     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            let path = window.location.pathname;
+            path = path.replace('/', '');
+
+            const links = document.querySelectorAll('.nav-link');
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') == path) {
+                    link.classList.add('active');
+                }
+            })
+        })
+     </script>
 </body>
 </html>

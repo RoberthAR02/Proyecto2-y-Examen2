@@ -9,6 +9,7 @@ namespace rarExamen
 {
     public partial class Usuarios : System.Web.UI.Page
     {
+
             protected void Page_Load(object sender, EventArgs e)
             {
                 fillGrid();
@@ -16,7 +17,7 @@ namespace rarExamen
 
             protected void fillGrid()
             {
-                int success = rarExamen.Base_de_datos.consultarUsuarios(dgUsuarios);
+                int success = rarExamen.Base_de_datos.ConsultarUsuarios(dgUsuarios);
 
                 if (success > 0)
                 {

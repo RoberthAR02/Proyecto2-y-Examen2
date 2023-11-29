@@ -7,21 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace rarExamen
 {
-    public partial class Equipos : System.Web.UI.Page
+    public partial class Reparaciones : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 fillGrid();
-                fillUsers();
+                fillEquipos();
             }
-
         }
-
         protected void fillGrid()
         {
-            int success = rarExamen.Base_de_datos.ConsultarEquipos(dgEquipos);
+            int success = rarExamen.Base_de_datos.ConsultarReparaciones(dgReparaciones);
 
             if (success > 0)
             {
@@ -29,80 +27,81 @@ namespace rarExamen
             }
         }
 
-        protected void fillUsers()
+        protected void fillEquipos()
         {
-            int success = rarExamen.Base_de_datos.ConsultarUsuariosEquipos(ddUsuario);
+            int success = rarExamen.Base_de_datos.ConsultarEquiposReparaciones(ddEquipo);
+
+            if (success > 0)
+            {
+                Console.Write(success.ToString());
+            }
         }
 
         protected void add()
         {
-            rarExamen.Equipos equipo = new rarExamen.Equipos();
-            if (!txtTipoEquipo.Text.Trim().Equals(string.Empty))
+            rarExamen.Reparaciones reparacion = new rarExamen.Reparaciones();
+            if (!txtFecha.Text.Trim().Equals(string.Empty))
             {
-                equipo.TipoEquipo = txtTipoEquipo.Text.Trim();
+                reparacion.FechaSolicitud = txtFecha.Text.Trim();
+            }
+            else { return; }
+            if (!txtEstado.Text.Trim().Equals(string.Empty))
+            {
+                reparacion.Estado = txtEstado.Text.Trim()[0];
+            }
+            else { return; }
+            if (!ddEquipo.SelectedValue.Trim().Equals(string.Empty))
+            {
+                reparacion.EquipoID = int.Parse(ddEquipo.SelectedValue.Trim());
             }
             else { return; }
 
-            if (!txtModelo.Text.Trim().Equals(string.Empty))
-            {
-                equipo.Modelo = txtModelo.Text.Trim();
-            }
-            else { return; }
-
-            if (!ddUsuario.SelectedValue.Trim().Equals(string.Empty))
-            {
-                equipo.UsuarioID = int.Parse(ddUsuario.SelectedValue.Trim());
-            }
-            else { return; }
-
-            if (equipo.AgregarEquipo())
+            if (reparacion.agregarReparacion())
             {
                 fillGrid();
             }
-
-
         }
 
         protected void delete()
         {
-            rarExamen.Usuarios equipo = new rarExamen.Usuarios();
+            rarExamen.Reparaciones reparacion = new rarExamen.Reparaciones();
             if (!txtId.Text.Trim().Equals(string.Empty))
             {
-                equipo.Id = int.Parse(txtId.Text.Trim());
+                reparacion.ReparacionID = int.Parse(txtId.Text.Trim());
             }
             else { return; }
 
-            if (equipo.borrarUsuario())
+            if (reparacion.borrarReparacion())
             {
                 fillGrid();
             }
-
         }
 
         protected void modificar()
         {
-            rarExamen.Equipos equipo = new rarExamen.Equipos();
+            rarExamen.Reparaciones reparacion = new rarExamen.Reparaciones();
             if (!txtId.Text.Trim().Equals(string.Empty))
             {
-                equipo.Id = int.Parse(txtId.Text.Trim());
+                reparacion.ReparacionID = int.Parse(txtId.Text.Trim());
             }
             else { return; }
-            if (!txtTipoEquipo.Text.Trim().Equals(string.Empty))
+            if (!txtFecha.Text.Trim().Equals(string.Empty))
             {
-                equipo.TipoEquipo = txtTipoEquipo.Text.Trim();
+                reparacion.FechaSolicitud = txtFecha.Text.Trim();
             }
             else { return; }
-
-            if (!txtModelo.Text.Trim().Equals(string.Empty))
+            if (!txtEstado.Text.Trim().Equals(string.Empty))
             {
-                equipo.Modelo = txtModelo.Text.Trim();
+                reparacion.Estado = txtEstado.Text.Trim()[0];
+            }
+            else { return; }
+            if (!ddEquipo.SelectedValue.Trim().Equals(string.Empty))
+            {
+                reparacion.EquipoID = int.Parse(ddEquipo.SelectedValue.Trim());
             }
             else { return; }
 
-
-            equipo.UsuarioID = int.Parse(ddUsuario.SelectedValue);
-
-            if (equipo.ModificarEquipo())
+            if (reparacion.modificarReparacion())
             {
                 fillGrid();
             }
@@ -110,17 +109,19 @@ namespace rarExamen
 
         protected void consultar()
         {
-            rarExamen.Usuarios equipo = new rarExamen.Usuarios();
+            rarExamen.Reparaciones reparacion = new rarExamen.Reparaciones();
             if (!txtId.Text.Trim().Equals(string.Empty))
             {
-                equipo.Id = int.Parse(txtId.Text.Trim());
+                reparacion.ReparacionID = int.Parse(txtId.Text.Trim());
             }
             else { return; }
 
-            if (equipo.consultarUsuario(dgEquipos))
+            if (reparacion.consultarReparacion(dgReparaciones))
             {
                 fillGrid();
             }
+
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
